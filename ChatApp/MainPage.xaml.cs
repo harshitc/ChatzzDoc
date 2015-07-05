@@ -59,7 +59,7 @@ namespace ChatApp
             {
                 if(rFnameTxt.Text=="")
                 {
-                    vFnameTxt.Text = "First name  not be empty";
+                    vFnameTxt.Text = "First name should not be empty";
                     return;
                 }
                 if(rLnameTxt.Text=="")

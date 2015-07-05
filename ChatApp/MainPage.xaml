@@ -16,9 +16,9 @@
             <PivotItem Header="Login">
                 <StackPanel>
                     <TextBlock x:Name="vlUnameTxt"/>
-                    <TextBox x:Name="lUnameTxt" PlaceholderText="Enter your username" InputScope="AlphanumericFullWidth"/>
+                    <TextBox x:Name="lUnameTxt" PlaceholderText="Enter Your Username" InputScope="AlphanumericFullWidth"/>
                     <TextBlock x:Name="vlPasswordTxt"/>
-                    <TextBox x:Name="lPasswordTxt" PlaceholderText="Enter your password"/>
+                    <TextBox x:Name="lPasswordTxt" PlaceholderText="Enter Your Password"/>
                     <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Center" Click="Login_Click" />
                 </StackPanel>
             </PivotItem>
@@ -30,7 +30,7 @@
                         <TextBlock x:Name="vLnameTxt"/>
                         <TextBox x:Name="rLnameTxt" PlaceholderText="Enter Your Last Name"/>
                         <TextBlock x:Name="vUnameTxt"/>
-                        <TextBox x:Name="rUnameTxt" PlaceholderText="Choose your Username" LostFocus="Uname_lostFocus" />
+                        <TextBox x:Name="rUnameTxt" PlaceholderText="Choose Your Username" LostFocus="Uname_lostFocus" />
                         <TextBlock x:Name="vPasswordTxt"/>
                         <PasswordBox x:Name="rPasswordTxt" PlaceholderText="Create Password"/>
                         <TextBlock x:Name="vCpasswordTxt"/>
