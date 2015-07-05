@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="ChatApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ChatApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="StatusTxt" />
+        <ProgressBar HorizontalAlignment="Center" Height="10" Margin="72,10,0,0" VerticalAlignment="Top" Width="318" x:Name="StatusBar"/>
+        <ProgressBar/>
+        <Pivot x:Name="pivot1" Title="Chatzz">
+            <PivotItem Header="Login">
+                <StackPanel>
+                    <TextBlock x:Name="vlUnameTxt"/>
+                    <TextBox x:Name="lUnameTxt" PlaceholderText="Enter your username" InputScope="AlphanumericFullWidth"/>
+                    <TextBlock x:Name="vlPasswordTxt"/>
+                    <TextBox x:Name="lPasswordTxt" PlaceholderText="Enter your password"/>
+                    <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Center" Click="Login_Click" />
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="Register">
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock x:Name="vFnameTxt"/>
+                        <TextBox x:Name="rFnameTxt" PlaceholderText="Enter Your First Name"/>
+                        <TextBlock x:Name="vLnameTxt"/>
+                        <TextBox x:Name="rLnameTxt" PlaceholderText="Enter Your Last Name"/>
+                        <TextBlock x:Name="vUnameTxt"/>
+                        <TextBox x:Name="rUnameTxt" PlaceholderText="Choose your Username" LostFocus="Uname_lostFocus" />
+                        <TextBlock x:Name="vPasswordTxt"/>
+                        <PasswordBox x:Name="rPasswordTxt" PlaceholderText="Create Password"/>
+                        <TextBlock x:Name="vCpasswordTxt"/>
+                        <PasswordBox x:Name="rCpasswordTxt" PlaceholderText="Confirm Password"/>
+                        <TextBlock x:Name="vDOB"/>
+                        <DatePicker x:Name="rDOB" Header="Date Of Birth" />
+                        <RadioButton GroupName="Gender" Content="Female"/>
+                        <RadioButton GroupName="Gender" Content="Male"/>
+                        <RadioButton GroupName="Gender" Content="Others"/>
+                        <ListBox x:Name="Clist" SelectionChanged=""/>
+                        <TextBlock x:Name="vZipTxt"/>
+                        <TextBox x:Name="rZipTxt" PlaceholderText="Enter Zip Code"/>
+                        <TextBlock x:Name="vPhoneTxt"/>
+                        <TextBox x:Name="rPhoneTxt" PlaceholderText="(Country Code) + Phone Number" LostFocus="Phone_lostFocus"/>
+                        <Button x:Name="regButton" Content="Register" HorizontalAlignment="Left" Click="Register_Clicked"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
