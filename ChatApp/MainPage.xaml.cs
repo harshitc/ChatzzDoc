@@ -55,7 +55,7 @@ namespace ChatApp
             DateTime Udob=DateTime.Parse(rDOB.Date.ToString("dd-MM-yyyy"));
             DateTime checkDOB=Udob.AddYears(12);
             string gen="";
-            if (Clist.SelectedValue == "select country") ;
+            if (Clist.SelectedValue == "select country") 
             {
                 vClist.Text="please select a country";
                 //return;
@@ -145,7 +145,7 @@ namespace ChatApp
         {
             if (lUnameTxt.Text == "")
             {
-                vlUnameTxt.Text = "Enter email id";
+                vlUnameTxt.Text = "Enter username";
                 return;
             }
             if (lPasswordTxt.Password == "" & lPasswordTxt.Password.Length < 6)
