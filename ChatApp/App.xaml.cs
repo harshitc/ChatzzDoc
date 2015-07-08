@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,6 +37,10 @@ namespace ChatApp
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
         }
+        public static MobileServiceClient MobileService = new MobileServiceClient(
+    "https://pdmdemoservice.azure-mobile.net/",
+    "yyHXWnKDpAhLnRNaMsfUJmUuZQiMcn15"
+);
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
