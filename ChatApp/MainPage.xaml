@@ -18,7 +18,7 @@
                     <TextBlock x:Name="vlUnameTxt"/>
                     <TextBox x:Name="lUnameTxt" PlaceholderText="Enter Your Username" InputScope="AlphanumericFullWidth"/>
                     <TextBlock x:Name="vlPasswordTxt"/>
-                    <TextBox x:Name="lPasswordTxt" PlaceholderText="Enter Your Password"/>
+                    <PasswordBox x:Name="lPasswordTxt" PlaceholderText="Enter Your Password"/>
                     <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Center" Click="Login_Click" />
                 </StackPanel>
             </PivotItem>
@@ -37,12 +37,13 @@
                         <PasswordBox x:Name="rCpasswordTxt" PlaceholderText="Confirm Password"/>
                         <TextBlock x:Name="vDOB"/>
                         <DatePicker x:Name="rDOB" Header="Date Of Birth" />
-                        <RadioButton GroupName="Gender" Content="Female"/>
-                        <RadioButton GroupName="Gender" Content="Male"/>
-                        <RadioButton GroupName="Gender" Content="Others"/>
+                        <TextBlock x:Name="vGender"/>
+                        <RadioButton x:Name="femaleRb" GroupName="Gender" Content="Female"/>
+                        <RadioButton x:Name="maleRb" GroupName="Gender" Content="Male"/>
+                        <RadioButton x:Name="othersRb" GroupName="Gender" Content="Others"/>
+                        <TextBlock x:Name="vClist"/>
                         <ListBox x:Name="Clist" SelectionChanged=""/>
-                        <TextBlock x:Name="vZipTxt"/>
-                        <TextBox x:Name="rZipTxt" PlaceholderText="Enter Zip Code"/>
+                        
                         <TextBlock x:Name="vPhoneTxt"/>
                         <TextBox x:Name="rPhoneTxt" PlaceholderText="(Country Code) + Phone Number" LostFocus="Phone_lostFocus"/>
                         <Button x:Name="regButton" Content="Register" HorizontalAlignment="Left" Click="Register_Clicked"/>

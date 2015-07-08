@@ -49,11 +49,29 @@ namespace ChatApp
 
 
 
-        private void Register_Clicked(object sender, RoutedEventArgs e)
+        private async void Register_Clicked(object sender, RoutedEventArgs e)
         {
             DateTime cDate=DateTime.Now;            
             DateTime Udob=DateTime.Parse(rDOB.Date.ToString("dd-MM-yyyy"));
             DateTime checkDOB=Udob.AddYears(12);
+            string gen="";
+            if (Clist.SelectedValue == "select country") ;
+            {
+                vClist.Text="please select a country";
+                //return;
+            }
+            if (maleRb.Checked == true)
+
+                gen = "male";
+            else if (femaleRb.Checked == true)
+                gen = "female";
+            else if (othersRb.Checked == true)
+                gen = "others";
+            else
+            {
+                vGender.Text = "select any gender";
+                return;
+            }
 
             try
             {
@@ -92,6 +110,28 @@ namespace ChatApp
                     vDOB.Text = "User should be greater than 12 years of age";
                     return;
                 }
+
+                StatusTxt.Text = "Loading.....";
+                StatusBar.IsIndeterminate = true;
+                regButton.IsEnabled = false;
+                PrateekPDM p1 = new PrateekPDM
+                {
+                    fname = rFnameTxt.Text,
+                    lname = rLnameTxt.Text,
+                    uname = rUnameTxt.Text,
+                    password = rPasswordTxt.Password,
+                    dob = rDOB.Date.ToString("dd-MM-yyyy"),
+                    gender = gen,
+                    country = Clist.SelectedItems.ToString(),
+                    phone = rPhoneTxt.Text
+                };
+                  await App.MobileService.GetTable<PrateekPDM>().InsertAsync(p1);
+                StatusTxt.Text = "";
+                StatusBar.IsIndeterminate = false;
+                pivot1.SelectedIndex = 0;
+            
+                
+                
                 }
             catch(Exception ex)
             {
@@ -99,25 +139,66 @@ namespace ChatApp
             }
                 
             }
-       
+        List<PrateekPDM> loggedlist = new List<PrateekPDM>();
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private async void Login_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lUnameTxt.Text == "")
+            {
+                vlUnameTxt.Text = "Enter email id";
+                return;
+            }
+            if (lPasswordTxt.Password == "" & lPasswordTxt.Password.Length < 6)
+            {
+                vlPasswordTxt.Text = "Enter Proper Password";
+                return;
+            }
+            StatusTxt.Text = "Loggin in";
+            StatusBar.IsIndeterminate = true;
+            LoginButton.IsEnabled = false;
+            loggedlist =await App.MobileService.GetTable<PrateekPDM>().Where(x => x.uname == lUnameTxt.Text & x.password == lPasswordTxt.Password).ToListAsync();
+            if(loggedlist.Count==1)
+            {
+                localsettings.Values["Fname"] = loggedlist[0].fname;
+                localsettings.Values["Lname"] = loggedlist[0].lname;
+                localsettings.Values["Uname"] = loggedlist[0].uname;
+                localsettings.Values["Password"] = loggedlist[0].password;
+                localsettings.Values["DOB"] = loggedlist[0].dob;
+                localsettings.Values["Gender"] = loggedlist[0].gender;
+                localsettings.Values["Country"] = loggedlist[0].country;
+                localsettings.Values["Mobile"] = loggedlist[0].phone;
+                this.Frame.Navigate(typeof(dashboard));
+            }
+            else
+            {
+                var m1 = new MessageDialog("Invalid Login").ShowAsync();
+                StatusTxt.Text = "";
+                StatusBar.IsIndeterminate = false;
+                LoginButton.IsEnabled = true;
+            }
 
         }
 
-
-
-        private void Phone_lostFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        List<PrateekPDM> tempEmail = new List<PrateekPDM>();
         int UnameFlag = 0;
-        private void Uname_lostFocus(object sender, RoutedEventArgs e)
-        {
 
+
+        private async void Uname_lostFocus(object sender, RoutedEventArgs e)
+        {
+            if (rUnameTxt.Text != "")
+            {
+                tempEmail = await App.MobileService.GetTable<PrateekPDM>().Where(x => x.uname == rUnameTxt.Text).ToListAsync();
+                if (tempEmail.Count != 0)
+                {
+                    vUnameTxt.Text = "Email already exists";
+                    UnameFlag = 0;
+                }
+                else
+                {
+                    vUnameTxt.Text = "Valid Email";
+                    UnameFlag = 1;
+                }
+            }
         }
 
     }
