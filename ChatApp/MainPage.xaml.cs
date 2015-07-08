@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -30,6 +31,7 @@ namespace ChatApp
             this.NavigationCacheMode = NavigationCacheMode.Required;
             pivot1.SelectedIndex = 1;
         }
+         ApplicationDataContainer localsettings = ApplicationData.Current.LocalSettings;
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
