@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Pivot>
+        <Pivot x:Name="pivot2" Title="Chatzz">
             <PivotItem Header="profile">
 
             </PivotItem>
