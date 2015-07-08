@@ -192,12 +192,12 @@ namespace ChatApp
                 tempEmail = await App.MobileService.GetTable<PrateekPDM>().Where(x => x.uname == rUnameTxt.Text).ToListAsync();
                 if (tempEmail.Count != 0)
                 {
-                    vUnameTxt.Text = "Email already exists";
+                    vUnameTxt.Text = "username already exists";
                     UnameFlag = 0;
                 }
                 else
                 {
-                    vUnameTxt.Text = "Valid Email";
+                    vUnameTxt.Text = "Valid username";
                     UnameFlag = 1;
                 }
             }
