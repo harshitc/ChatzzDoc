@@ -62,12 +62,12 @@ namespace ChatApp
                 vClist.Text="please select a country";
                 //return;
             }
-            if (maleRb.Checked == true)
+            if (maleRb.IsChecked == true)
 
                 gen = "male";
-            else if (femaleRb.Checked == true)
+            else if (femaleRb.IsChecked == true)
                 gen = "female";
-            else if (othersRb.Checked == true)
+            else if (othersRb.IsChecked == true)
                 gen = "others";
             else
             {
