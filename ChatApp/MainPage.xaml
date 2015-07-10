@@ -42,8 +42,18 @@
                         <RadioButton x:Name="maleRb" GroupName="Gender" Content="Male"/>
                         <RadioButton x:Name="othersRb" GroupName="Gender" Content="Others"/>
                         <TextBlock x:Name="vClist"/>
-                        <ListBox x:Name="Clist" SelectionChanged=""/>
-                        
+                        <ListBox x:Name="Clist">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Height="auto" Width="auto">
+                                        <TextBlock x:Name="nameblock" Text="{Binding name}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" />
+
+                                    </Grid>
+                                </DataTemplate>
+
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
                         <TextBlock x:Name="vPhoneTxt"/>
                         <TextBox x:Name="rPhoneTxt" PlaceholderText="(Country Code) + Phone Number" LostFocus="Phone_lostFocus"/>
                         <Button x:Name="regButton" Content="Register" HorizontalAlignment="Left" Click="Register_Clicked"/>
