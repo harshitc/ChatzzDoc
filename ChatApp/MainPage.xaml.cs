@@ -71,7 +71,7 @@ namespace ChatApp
                 gen = "others";
             else
             {
-                vGender.Text = "Select any gender";
+                vGender.Text = "Select Any Gender";
                 return;
             }
 
