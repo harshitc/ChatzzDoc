@@ -31,7 +31,7 @@ namespace ChatApp
             this.NavigationCacheMode = NavigationCacheMode.Required;
             pivot1.SelectedIndex = 1;
         }
-         ApplicationDataContainer localsettings = ApplicationData.Current.LocalSettings;
+        ApplicationDataContainer localsettings = ApplicationData.Current.LocalSettings;
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
@@ -53,13 +53,13 @@ namespace ChatApp
 
         private async void Register_Clicked(object sender, RoutedEventArgs e)
         {
-            DateTime cDate=DateTime.Now;            
-            DateTime Udob=DateTime.Parse(rDOB.Date.ToString("dd-MM-yyyy"));
-            DateTime checkDOB=Udob.AddYears(12);
-            string gen="";
-            if (Clist.SelectedValue == "select country") 
+            DateTime cDate = DateTime.Now;
+            DateTime Udob = DateTime.Parse(rDOB.Date.ToString("dd-MM-yyyy"));
+            DateTime checkDOB = Udob.AddYears(12);
+            string gen = "";
+            if (Clist.SelectedValue == "select country")
             {
-                vClist.Text="please select a country";
+                vClist.Text = "please select a country";
                 //return;
             }
             if (maleRb.IsChecked == true)
@@ -77,37 +77,37 @@ namespace ChatApp
 
             try
             {
-                if(rFnameTxt.Text=="")
+                if (rFnameTxt.Text == "")
                 {
                     vFnameTxt.Text = "First name should not be empty";
                     return;
                 }
-                if(rLnameTxt.Text=="")
+                if (rLnameTxt.Text == "")
                 {
                     vLnameTxt.Text = "Last name should not be empty";
                     return;
                 }
-                if(rUnameTxt.Text=="")
+                if (rUnameTxt.Text == "")
                 {
                     vUnameTxt.Text = "Username should not be empty";
                     return;
                 }
-                if(UnameFlag==0)
+                if (UnameFlag == 0)
                 {
                     vUnameTxt.Text = "Username alredy exists";
                     return;
                 }
-                if(rPasswordTxt.Password=="" & rPasswordTxt.Password.Length<6)
+                if (rPasswordTxt.Password == "" & rPasswordTxt.Password.Length < 6)
                 {
                     vPasswordTxt.Text = "Your password must be atleast 6 characters long";
                     return;
                 }
-                if(rCpasswordTxt.Password!=rPasswordTxt.Password)
+                if (rCpasswordTxt.Password != rPasswordTxt.Password)
                 {
                     vCpasswordTxt.Text = "Passwords don't match";
                     return;
                 }
-                if(checkDOB.Date>=cDate.Date)
+                if (checkDOB.Date >= cDate.Date)
                 {
                     vDOB.Text = "User should be greater than 12 years of age";
                     return;
@@ -127,20 +127,20 @@ namespace ChatApp
                     country = Clist.SelectedItems.ToString(),
                     phone = rPhoneTxt.Text
                 };
-                  await App.MobileService.GetTable<PrateekPDM>().InsertAsync(p1);
+                await App.MobileService.GetTable<PrateekPDM>().InsertAsync(p1);
                 StatusTxt.Text = "";
                 StatusBar.IsIndeterminate = false;
                 pivot1.SelectedIndex = 0;
-            
-                
-                
-                }
-            catch(Exception ex)
+
+
+
+            }
+            catch (Exception ex)
             {
-                var msg=new MessageDialog("Error"+ex).ShowAsync();
+                var msg = new MessageDialog("Error" + ex).ShowAsync();
             }
-                
-            }
+
+        }
         List<PrateekPDM> loggedlist = new List<PrateekPDM>();
 
         private async void Login_Click(object sender, RoutedEventArgs e)
@@ -158,8 +158,8 @@ namespace ChatApp
             StatusTxt.Text = "Loggin in";
             StatusBar.IsIndeterminate = true;
             LoginButton.IsEnabled = false;
-            loggedlist =await App.MobileService.GetTable<PrateekPDM>().Where(x => x.uname == lUnameTxt.Text & x.password == lPasswordTxt.Password).ToListAsync();
-            if(loggedlist.Count==1)
+            loggedlist = await App.MobileService.GetTable<PrateekPDM>().Where(x => x.uname == lUnameTxt.Text & x.password == lPasswordTxt.Password).ToListAsync();
+            if (loggedlist.Count == 1)
             {
                 localsettings.Values["Fname"] = loggedlist[0].fname;
                 localsettings.Values["Lname"] = loggedlist[0].lname;
@@ -203,6 +203,6 @@ namespace ChatApp
             }
         }
 
-    }       //comment...aakhir ho hi gya!!!! :)
+    }
 }
 
