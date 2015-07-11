@@ -38,7 +38,7 @@ namespace ChatApp
         }
         string[] countrynames = new string[]
     {
-        "select country",
+       
 	"Afghanistan",
 	"Albania",
 	"Algeria",
@@ -321,7 +321,7 @@ namespace ChatApp
             DateTime Udob = DateTime.Parse(rDOB.Date.ToString("dd-MM-yyyy"));
             DateTime checkDOB = Udob.AddYears(12);
             string gen = "";
-            if (Clist.SelectedItem == "select country")
+            if (Clist.PlaceholderText == "select country")
             {
                 vClist.Text = "please select a country";
                 //return;
