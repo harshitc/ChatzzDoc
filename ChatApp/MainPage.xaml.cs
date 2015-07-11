@@ -321,10 +321,15 @@ namespace ChatApp
             DateTime Udob = DateTime.Parse(rDOB.Date.ToString("dd-MM-yyyy"));
             DateTime checkDOB = Udob.AddYears(12);
             string gen = "";
-            if (Clist.PlaceholderText == "select country")
+            if (Clist.SelectedValue == null)
             {
-                vClist.Text = "please select a country";
-                //return;
+                vClist.Text = "select any country";
+                return;
+            }
+            else
+            {
+                vClist.Text = " ";
+
             }
             if (maleRb.IsChecked == true)
 
