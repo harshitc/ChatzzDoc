@@ -27,7 +27,7 @@ namespace ChatApp
         public MainPage()
         {
             this.InitializeComponent();
-            countrymethod();
+            countrymethod();// called the countrynames in listbox
             this.NavigationCacheMode = NavigationCacheMode.Required;
             pivot1.SelectedIndex = 1;
         }
