@@ -388,7 +388,7 @@ namespace ChatApp
                     password = rPasswordTxt.Password,
                     dob = rDOB.Date.ToString("dd-MM-yyyy"),
                     gender = gen,
-                    country = Clist.SelectedItems.ToString(),
+                    country = Clist.SelectedItem.ToString(),
                     phone = rPhoneTxt.Text
                 };
                 await App.MobileService.GetTable<PrateekPDM>().InsertAsync(p1);
