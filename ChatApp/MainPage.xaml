@@ -42,8 +42,8 @@
                         <RadioButton x:Name="maleRb" GroupName="Gender" Content="Male"/>
                         <RadioButton x:Name="othersRb" GroupName="Gender" Content="Others"/>
                         <TextBlock x:Name="vClist"/>
-                        <ListBox x:Name="Clist">
-                            <ListBox.ItemTemplate>
+                        <ComboBox x:Name="Clist" PlaceholderText="select country">
+                            <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Height="auto" Width="auto">
                                         <TextBlock x:Name="nameblock" Text="{Binding name}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" />
@@ -51,8 +51,8 @@
                                     </Grid>
                                 </DataTemplate>
 
-                            </ListBox.ItemTemplate>
-                        </ListBox>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
 
                         <TextBlock x:Name="vPhoneTxt"/>
                         <TextBox x:Name="rPhoneTxt" PlaceholderText="(Country Code) + Phone Number" LostFocus="Uname_lostFocus"/>
