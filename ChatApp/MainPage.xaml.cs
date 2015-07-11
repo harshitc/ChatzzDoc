@@ -321,7 +321,7 @@ namespace ChatApp
             DateTime Udob = DateTime.Parse(rDOB.Date.ToString("dd-MM-yyyy"));
             DateTime checkDOB = Udob.AddYears(12);
             string gen = "";
-            if (Clist.SelectedValue == "select country")
+            if (Clist.SelectedItem == "select country")
             {
                 vClist.Text = "please select a country";
                 //return;
