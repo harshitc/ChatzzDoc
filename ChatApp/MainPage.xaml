@@ -55,7 +55,7 @@
                         </ListBox>
 
                         <TextBlock x:Name="vPhoneTxt"/>
-                        <TextBox x:Name="rPhoneTxt" PlaceholderText="(Country Code) + Phone Number" LostFocus="Phone_lostFocus"/>
+                        <TextBox x:Name="rPhoneTxt" PlaceholderText="(Country Code) + Phone Number" LostFocus="Uname_lostFocus"/>
                         <Button x:Name="regButton" Content="Register" HorizontalAlignment="Left" Click="Register_Clicked"/>
                     </StackPanel>
                 </ScrollViewer>
