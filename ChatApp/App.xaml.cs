@@ -38,9 +38,9 @@ namespace ChatApp
             this.Suspending += this.OnSuspending;
         }
         public static MobileServiceClient MobileService = new MobileServiceClient(
-    "https://pdmdemoservice.azure-mobile.net/",
-    "yyHXWnKDpAhLnRNaMsfUJmUuZQiMcn15"
-);
+            "https://chatzz.azure-mobile.net/",
+            "BHwJBmVJSpdLXwQNpSClmnXddFGTXw90"
+        );
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

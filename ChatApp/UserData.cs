@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChatApp
 {
-   public class PrateekPDM
+   public class UserData
     {
        public string id { get; set; }
        public string fname { get; set; }

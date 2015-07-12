@@ -385,7 +385,7 @@ namespace ChatApp
                 StatusTxt.Text = "Loading.....";
                 StatusBar.IsIndeterminate = true;
                 regButton.IsEnabled = false;
-                PrateekPDM p1 = new PrateekPDM
+                UserData p1 = new UserData
                 {
                     fname = rFnameTxt.Text,
                     lname = rLnameTxt.Text,
@@ -396,7 +396,7 @@ namespace ChatApp
                     country = Clist.SelectedItem.ToString(),
                     phone = rPhoneTxt.Text
                 };
-                await App.MobileService.GetTable<PrateekPDM>().InsertAsync(p1);
+                await App.MobileService.GetTable<UserData>().InsertAsync(p1);
                 StatusTxt.Text = "";
                 StatusBar.IsIndeterminate = false;
                 pivot1.SelectedIndex = 0;
@@ -410,7 +410,7 @@ namespace ChatApp
             }
 
         }
-        List<PrateekPDM> loggedlist = new List<PrateekPDM>();
+        List<UserData> loggedlist = new List<UserData>();
 
         private async void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -427,7 +427,7 @@ namespace ChatApp
             StatusTxt.Text = "Loggin in";
             StatusBar.IsIndeterminate = true;
             LoginButton.IsEnabled = false;
-            loggedlist = await App.MobileService.GetTable<PrateekPDM>().Where(x => x.uname == lUnameTxt.Text & x.password == lPasswordTxt.Password).ToListAsync();
+            loggedlist = await App.MobileService.GetTable<UserData>().Where(x => x.uname == lUnameTxt.Text & x.password == lPasswordTxt.Password).ToListAsync();
             if (loggedlist.Count == 1)
             {
                 localsettings.Values["Fname"] = loggedlist[0].fname;
@@ -450,7 +450,7 @@ namespace ChatApp
 
         }
 
-        List<PrateekPDM> tempEmail = new List<PrateekPDM>();
+        List<UserData> tempEmail = new List<UserData>();
         int UnameFlag = 0;
 
 
@@ -458,7 +458,7 @@ namespace ChatApp
         {
             if (rUnameTxt.Text != "")
             {
-                tempEmail = await App.MobileService.GetTable<PrateekPDM>().Where(x => x.uname == rUnameTxt.Text).ToListAsync();
+                tempEmail = await App.MobileService.GetTable<UserData>().Where(x => x.uname == rUnameTxt.Text).ToListAsync();
                 if (tempEmail.Count != 0)
                 {
                     vUnameTxt.Text = "username already exists";
