@@ -321,6 +321,8 @@ namespace ChatApp
             DateTime Udob = DateTime.Parse(rDOB.Date.ToString("dd-MM-yyyy"));
             DateTime checkDOB = Udob.AddYears(12);
             string gen = "";
+            try
+            {
             if (Clist.SelectedValue == null)
             {
                 vClist.Text = "select any country";
@@ -344,8 +346,7 @@ namespace ChatApp
                 return;
             }
 
-            try
-            {
+           
                 if (rFnameTxt.Text == "")
                 {
                     vFnameTxt.Text = "First name should not be empty";
