@@ -8,6 +8,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -75,7 +76,17 @@ namespace ChatApp
                 }
 
                 // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
+            
+               Window.Current.Content = rootFrame;
+               ApplicationDataContainer localsettings = ApplicationData.Current.LocalSettings;
+               if (localsettings.Values["Email"] == null & localsettings.Values["password"] == null)
+               {
+                   rootFrame.Navigate(typeof(MainPage));
+               }
+               else
+               {
+                   rootFrame.Navigate(typeof(dashboard));
+               }
             }
 
             if (rootFrame.Content == null)
