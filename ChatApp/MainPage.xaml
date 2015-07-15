@@ -26,11 +26,11 @@
                 <ScrollViewer>
                     <StackPanel>
                         <TextBlock x:Name="vFnameTxt"/>
-                        <TextBox x:Name="rFnameTxt" PlaceholderText="Enter Your First Name"/>
+                        <TextBox x:Name="rFnameTxt" PlaceholderText="Enter Your First Name" MaxLength="25" />
                         <TextBlock x:Name="vLnameTxt"/>
-                        <TextBox x:Name="rLnameTxt" PlaceholderText="Enter Your Last Name"/>
+                        <TextBox x:Name="rLnameTxt" PlaceholderText="Enter Your Last Name" MaxLength="25"/>
                         <TextBlock x:Name="vUnameTxt"/>
-                        <TextBox x:Name="rUnameTxt" PlaceholderText="Choose Your Username" LostFocus="Uname_lostFocus" />
+                        <TextBox x:Name="rUnameTxt" PlaceholderText="Choose Your Username" LostFocus="Uname_lostFocus" MaxLength="15" />
                         <TextBlock x:Name="vPasswordTxt"/>
                         <PasswordBox x:Name="rPasswordTxt" PlaceholderText="Create Password"/>
                         <TextBlock x:Name="vCpasswordTxt"/>
@@ -38,9 +38,12 @@
                         <TextBlock x:Name="vDOB"/>
                         <DatePicker x:Name="rDOB" Header="Date Of Birth" />
                         <TextBlock x:Name="vGender"/>
-                        <RadioButton x:Name="femaleRb" GroupName="Gender" Content="Female"/>
-                        <RadioButton x:Name="maleRb" GroupName="Gender" Content="Male"/>
-                        <RadioButton x:Name="othersRb" GroupName="Gender" Content="Others"/>
+                        <TextBlock x:Name="gen" Text="Gender" Height="20" FontSize="16" RequestedTheme="Dark" Opacity="0.62"/>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton x:Name="femaleRb" GroupName="Gender" Content="Female" Grid.Row="0" Grid.Column="0" />
+                            <RadioButton x:Name="maleRb" GroupName="Gender" Content="Male" Grid.Row="0" Grid.Column="1" />
+                            <RadioButton x:Name="othersRb" GroupName="Gender" Content="Others" Grid.Row="0" Grid.Column="2" />
+                        </StackPanel>
                         <TextBlock x:Name="vClist"/>
                         <ComboBox x:Name="Clist" PlaceholderText="select country">
                             <ComboBox.ItemTemplate>
@@ -55,7 +58,7 @@
                         </ComboBox>
 
                         <TextBlock x:Name="vPhoneTxt"/>
-                        <TextBox x:Name="rPhoneTxt" PlaceholderText="(Country Code) + Phone Number" LostFocus="Uname_lostFocus"/>
+                        <TextBox x:Name="rPhoneTxt" PlaceholderText="Enter 10 digit Phone Number" LostFocus="Uname_lostFocus"/>
                         <Button x:Name="regButton" Content="Register" HorizontalAlignment="Left" Click="Register_Clicked"/>
                     </StackPanel>
                 </ScrollViewer>

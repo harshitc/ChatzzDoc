@@ -382,6 +382,11 @@ namespace ChatApp
                     vDOB.Text = "User should be greater than 12 years of age";
                     return;
                 }
+                if(rPhoneTxt.Text=="" & rPhoneTxt.Text.Length!=10)
+                {
+                    vPhoneTxt.Text = "Enter 10 digit Phone Number";
+                    return;
+                }
 
                 StatusTxt.Text = "Loading.....";
                 StatusBar.IsIndeterminate = true;
