@@ -399,7 +399,7 @@ namespace ChatApp
                     password = rPasswordTxt.Password,
                     dob = rDOB.Date.ToString("dd-MM-yyyy"),
                     gender = gen,
-                    country = Clist.SelectedItem.ToString(),
+                    country = countrynames[Clist.SelectedIndex],
                     phone = rPhoneTxt.Text
                 };
                 await App.MobileService.GetTable<UserData>().InsertAsync(p1);
