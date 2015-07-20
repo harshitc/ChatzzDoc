@@ -58,7 +58,7 @@
                         </ComboBox>
 
                         <TextBlock x:Name="vPhoneTxt"/>
-                        <TextBox x:Name="rPhoneTxt" PlaceholderText="Enter 10 digit Phone Number" LostFocus="Uname_lostFocus"/>
+                        <TextBox x:Name="rPhoneTxt" PlaceholderText="Enter 10 digit Phone Number" MaxLength="10"  LostFocus="Uname_lostFocus"/>
                         <Button x:Name="regButton" Content="Register" HorizontalAlignment="Left" Click="Register_Clicked"/>
                     </StackPanel>
                 </ScrollViewer>
